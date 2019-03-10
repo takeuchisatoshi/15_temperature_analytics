@@ -15,12 +15,10 @@ def main():
 
     # Q1. 全国の平均気温は？
     total = 0
+    size = len(weather_information)
 
-    # for dict_number in range(0, len(weather_information)-1):
     for information_dict in weather_information:
         total += information_dict["temperature"]
-
-    size = len(weather_information)
 
     weather_average = total / size
 
@@ -30,8 +28,7 @@ def main():
 
     # Q2. 大阪府のすべての駅名を出力してね。
     print("大阪府の駅は")
-    for dict_number in range(0, len(weather_information)-1):
-        information_dict = weather_information[dict_number]
+    for information_dict in weather_information:
         if information_dict["prefecture"] == "大阪府":
             print(information_dict["station"])
     print("\n")
@@ -41,14 +38,37 @@ def main():
     total_fukuoka = 0
     size_fukuoka = 0
 
-    for dict_number in weather_information:
-        if dict_number["prefecture"] == "福岡県":
+    for information_dict in weather_information:
+        if information_dict["prefecture"] == "福岡県":
             total_fukuoka += information_dict["temperature"]
             size_fukuoka += 1
 
     average_fukuoka_temperature = total_fukuoka / size_fukuoka
     print(f"福岡の平均気温は: {average_fukuoka_temperature}")
+    print("\n")
 
+    # 04. 気温が9度以上の地域の平均気温
+    total_9up = 0
+    size_9up = 0
+
+    for information_dict in weather_information:
+        if information_dict["temperature"] >= 9:
+            total_9up += information_dict["temperature"]
+            size_9up += 1
+
+    average_9up_temperature = total_9up / size_9up
+    print(f"気温が9度以上の地域の平均気温は: {average_9up_temperature}")
+    print("\n")
+
+    # 05. 気温が8度以下の駅名
+    total_8down = 0
+    size_8down = 0
+
+    input_temperature = int(input(f"気温が○度以下の駅は? (気温を入力してね):"))
+    for information_dict in weather_information:
+        if information_dict["temperature"] <= input_temperature:
+            print(information_dict["station"])
+    print("\n")
 
 if __name__ == "__main__":
     main()
