@@ -23,7 +23,7 @@ def main():
     weather_average = total / size
 
     print(f"全国の平均気温: {weather_average}")
-    print("\n")
+    print()
 
 
     # Q2. 大阪府のすべての駅名を出力してね。
@@ -31,7 +31,7 @@ def main():
     for information_dict in weather_information:
         if information_dict["prefecture"] == "大阪府":
             print(information_dict["station"])
-    print("\n")
+    print()
 
 
     # Q3. 福岡県の平均気温は？
@@ -45,7 +45,7 @@ def main():
 
     average_fukuoka_temperature = total_fukuoka / size_fukuoka
     print(f"福岡の平均気温は: {average_fukuoka_temperature}")
-    print("\n")
+    print()
 
     # 04. 気温が9度以上の地域の平均気温
     total_9up = 0
@@ -58,7 +58,7 @@ def main():
 
     average_9up_temperature = total_9up / size_9up
     print(f"気温が9度以上の地域の平均気温は: {average_9up_temperature}")
-    print("\n")
+    print()
 
     # 05. 気温が8度以下の駅名
     total_8down = 0
@@ -68,7 +68,7 @@ def main():
     for information_dict in weather_information:
         if information_dict["temperature"] <= input_temperature:
             print(information_dict["station"])
-    print("\n")
+    print()
 
 if __name__ == "__main__":
     main()
